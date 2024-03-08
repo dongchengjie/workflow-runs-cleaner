@@ -1,6 +1,6 @@
 name: workflow-runs-cleaner
 author: dongchengjie
-description: An github action designed for bulk deletion of workflow runs.
+description: A github action designed for bulk deletion of workflow runs.
 
 inputs:
   repository:
