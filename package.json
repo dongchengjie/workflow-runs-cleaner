@@ -1,0 +1,13 @@
+{
+  "name": "workflow-runs-cleaner",
+  "private": false,
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "actions-toolkit": "^6.0.1",
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0"
+  }
+}

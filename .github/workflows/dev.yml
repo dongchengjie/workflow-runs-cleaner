@@ -1,0 +1,23 @@
+name: Workflow Dev
+
+on:
+  push:
+    paths:
+      - '.github/workflows/dev.yml'
+  workflow_dispatch:
+
+jobs:
+  fetch-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Delete workflow runs
+        uses: dongchengjie/actions@master
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ secrets.SuperSecret }}
+          event-filter: ''
+          status-filter: 'success'
+          branch-filter: ''
+          actor-filter: ''
+          maintain-span: ''

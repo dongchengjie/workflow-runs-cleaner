@@ -1,0 +1,48 @@
+name: workflow-runs-cleaner
+author: dongchengjie
+description: An github action designed for bulk deletion of workflow runs.
+
+inputs:
+  repository:
+    description: 'Github repository(should contain both owner and repo)'
+    required: true
+
+  token:
+    description: 'Github token(requires access to workflows)'
+    required: true
+
+  event-filter:
+    description: "Filter workflow runs based on their event type.\
+      Refer to https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows for available values."
+    required: false
+    default: ''
+
+  status-filter:
+    description: "Filter workflow runs according to their status(format: success, failure).\
+      Refer to Refer to https://docs.github.com/en/rest/actions/workflow-runs#list-workflow-runs-for-a-repository for available values."
+    required: false
+    default: 'failure, cancelled'
+
+  branch-filter:
+    description: 'Filter workflow runs based on their branch.'
+    required: false
+    default: ''
+
+  actor-filter:
+    description: 'Filter workflow runs based on their actor. '
+    required: false
+    default: ''
+
+  maintain-span:
+    description: 'Retain the most recent span workflow runs (d for days, w for weeks, m for months, y for years).\
+      It conflicts with filters above.'
+    required: false
+    default: ''
+
+runs:
+  using: docker
+  image: Dockerfile
+
+branding:
+  color: white
+  icon: trash
