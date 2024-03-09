@@ -39,6 +39,15 @@ function calculateDuration(span) {
   return 0;
 }
 
+function applyFilter(name, filter, records) {
+  const result = records?.filter(filter);
+  const diff = records?.length - result.length;
+  if (diff > 0) {
+    core.info(`Exclude ${diff} run(s) using filter '${name}'`);
+  }
+  return result;
+}
+
 (async () => {
   // Parsing and preparing filters based on the action inputs
   const repository = core.getInput('repository');
@@ -78,9 +87,13 @@ function calculateDuration(span) {
       break; // Exit if no workflow runs are found
     }
 
-    const toBeDeleted = workflowRuns.filter(
-      item => eventFilter(item) && statusFilter(item) && branchFilter(item) && actorFilter(item) && spanFilter(item)
-    );
+    // Apply filters
+    const toBeDeleted = workflowRuns;
+    toBeDeleted = applyFilter('event-filter', eventFilter, toBeDeleted);
+    toBeDeleted = applyFilter('status-filter', statusFilter, toBeDeleted);
+    toBeDeleted = applyFilter('branch-filter', branchFilter, toBeDeleted);
+    toBeDeleted = applyFilter('actor-filter', actorFilter, toBeDeleted);
+    toBeDeleted = applyFilter('maintain-span', spanFilter, toBeDeleted);
 
     core.info(`${workflowRuns.length} workflow runs in total, ${toBeDeleted.length} runs meet the filter-criteria.`);
 
