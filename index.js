@@ -88,7 +88,7 @@ function applyFilter(name, filter, records) {
     }
 
     // Apply filters
-    const toBeDeleted = workflowRuns;
+    let toBeDeleted = workflowRuns;
     toBeDeleted = applyFilter('event-filter', eventFilter, toBeDeleted);
     toBeDeleted = applyFilter('status-filter', statusFilter, toBeDeleted);
     toBeDeleted = applyFilter('branch-filter', branchFilter, toBeDeleted);
