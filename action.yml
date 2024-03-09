@@ -21,7 +21,7 @@ inputs:
     description: "Filter workflow runs according to their status(format: success, failure).\
       Refer to Refer to https://docs.github.com/en/rest/actions/workflow-runs#list-workflow-runs-for-a-repository for available values."
     required: false
-    default: 'failure, cancelled'
+    default: ''
 
   branch-filter:
     description: 'Filter workflow runs based on their branch.'
