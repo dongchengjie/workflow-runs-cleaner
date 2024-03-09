@@ -7,7 +7,7 @@ async function getWorkflowRuns(octokit, owner, repo) {
     const { data: { workflow_runs: workflowRuns = [] } = {} } = await octokit.rest.actions.listWorkflowRunsForRepo({
       owner,
       repo,
-      per_page: 100,
+      per_page: 100
     });
     return workflowRuns;
   } catch (err) {
@@ -22,7 +22,7 @@ async function deleteWorkflowRun(octokit, owner, repo, runId) {
     await octokit.rest.actions.deleteWorkflowRun({
       owner,
       repo,
-      run_id: runId,
+      run_id: runId
     });
   } catch (err) {
     core.error(`Failed to delete workflow run ${runId}: ${err.message}`);
