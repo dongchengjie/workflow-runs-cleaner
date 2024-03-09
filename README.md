@@ -16,7 +16,7 @@ jobs:
         uses: dongchengjie/workflow-runs-cleaner@v1
         with:
           repository: ${{ github.repository }}
-          token: ${{ secrets.MyToken }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           event-filter: 'workflow_dispatch'
           status-filter: 'success,failure'
           branch-filter: 'master'
@@ -57,7 +57,7 @@ jobs:
            uses: dongchengjie/workflow-runs-cleaner@v1
            with:
              repository: ${{ github.repository }}
-             token: ${{ secrets.SuperSecret }}
+             token: ${{ secrets.GITHUB_TOKEN }}
              maintain-span: '1w'
    ```
 
@@ -78,6 +78,6 @@ jobs:
            uses: dongchengjie/workflow-runs-cleaner@v1
            with:
              repository: ${{ github.repository }}
-             token: ${{ secrets.SuperSecret }}
+             token: ${{ secrets.GITHUB_TOKEN }}
              status-filter: 'success'
    ```
