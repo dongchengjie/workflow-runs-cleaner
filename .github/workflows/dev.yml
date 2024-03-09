@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Delete workflow runs
-        uses: dongchengjie/workflow-runs-cleaner@master
+        uses: dongchengjie/workflow-runs-cleaner@v1
         with:
           repository: ${{ github.repository }}
-          token: ${{ secrets.SuperSecret }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           event-filter: ''
           status-filter: 'success'
           branch-filter: ''
