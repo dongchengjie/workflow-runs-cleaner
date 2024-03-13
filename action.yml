@@ -34,7 +34,7 @@ inputs:
     default: ''
 
   maintain-span:
-    description: 'Retain the most recent span workflow runs (d for days, w for weeks, m for months, y for years).\
+    description: 'Retain the most recent span workflow runs (h for hours, d for days, w for weeks, m for months, y for years).\
       It conflicts with filters above.'
     required: false
     default: ''

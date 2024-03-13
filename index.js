@@ -33,7 +33,7 @@ function calculateDuration(span) {
   if (span) {
     const value = parseInt(span.slice(0, -1), 10);
     const unit = span.slice(-1);
-    const unitToMs = { d: 86400000, w: 604800000, m: 2592000000, y: 31536000000 };
+    const unitToMs = { h: 3600000, d: 86400000, w: 604800000, m: 2592000000, y: 31536000000 };
     return value * (unitToMs[unit] || 0);
   }
   return 0;
